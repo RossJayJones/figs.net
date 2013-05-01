@@ -1,4 +1,4 @@
 figs.net
 ========
 
-Scalable .Net Configuration Manager
+Scalable .Net Configuration Management
