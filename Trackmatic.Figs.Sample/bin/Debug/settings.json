@@ -1,0 +1,13 @@
+﻿{
+	"development": {
+		"sample1" : "1",
+		"sample2" : "2"
+	},
+	"production": {
+		"sample1" : "1",
+		"sample2" : "my value"
+	},
+	"configuration": {
+		"active" : "production"
+	}
+}

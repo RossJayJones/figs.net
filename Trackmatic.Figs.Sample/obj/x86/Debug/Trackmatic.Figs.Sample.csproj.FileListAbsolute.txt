@@ -1,0 +1,8 @@
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\bin\Debug\Trackmatic.Figs.Sample.exe
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\bin\Debug\Trackmatic.Figs.Sample.pdb
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\obj\x86\Debug\Trackmatic.Figs.Sample.exe
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\obj\x86\Debug\Trackmatic.Figs.Sample.pdb
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\bin\Debug\Trackmatic.Figs.Sample.exe.config
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\bin\Debug\sample.config
+C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs.Sample\bin\Debug\settings.json

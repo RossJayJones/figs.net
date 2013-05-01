@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\Figs\Trackmatic.Figs.Targets"/>
+  <PropertyGroup>
+    <FigsPath>settings.json</FigsPath>
+  </PropertyGroup>
+  <Target Name="Build">
+    <Figs FigsPath="$(FigsPath)" ProjectName="$(MSBuildProjectFile)" BinPath="$(MSBuildProjectDirectory)\bin\Debug\" />
+  </Target>
+</Project>
