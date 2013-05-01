@@ -22,13 +22,15 @@ A script is available, "figs-install.ps1", which will add the relevant tags to y
 
 The script takes 2 parameters, -ProjectName which identifies the project which you want to apply Figs.Net to and -Path which is the relative path of your settings.json file. If you have maintained a nice flat structure for your solution it will normall be ../settings.json. The structure described here is represented below:
 
-Main Folder
----Solution.sln
----settings.json
----ProjectOne
-------ProjectOne.csproj
----ProjectTwo
-------ProjectTwo.csproj
+<code>
+Main Folder  
+---Solution.sln  
+---settings.json  
+---ProjectOne  
+------ProjectOne.csproj  
+---ProjectTwo  
+------ProjectTwo.csproj  
+</code>
 
 Usage
 ========
@@ -36,29 +38,32 @@ Usage
 Simply repce the values in your .net config file with a token pre-fixed with "{{" and appended with "}}". Figs.Net parses the file and replaces these tokens with a value from the settings.json file. The json file also indicates which configuratiom must be used
 
 Sample Config
-
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <appSettings>
-    <add key="sample1" value="{{sample1}}" />
-    <add key="sample2" value="{{sample2}}" />
-  </appSettings>
-</configuration>
+--------
+<code>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;   
+&lt;configuration&gt;   
+  &lt;appSettings&gt;   
+    &lt;add key="sample1" value="{{sample1}}" /&gt;   
+    &lt;add key="sample2" value="{{sample2}}" /&gt;   
+  &lt;/appSettings&gt;   
+&lt;/configuration&gt;   
+</code>
 
 Sample Json
+--------
 
-{
-	"development": {
-		"sample1" : "dev value 1",
-		"sample2" : "dev value 2"
-	},
-	"production": {
-		"sample1" : "prod value 1",
-		"sample2" : "prod value 2"
-	},
-	"configuration": {
-		"active" : "production"
-	}
-}
+{   
+	"development": {   
+		"sample1" : "dev value 1",   
+		"sample2" : "dev value 2"   
+	},   
+	"production": {   
+		"sample1" : "prod value 1",   
+		"sample2" : "prod value 2"   
+	},   
+	"configuration": {     
+		"active" : "production"   
+	}   
+}   
 
-When the solution with the above project is built Figs.Net will replace {{smpale1}} with value "prod value 1" and so on.
+When the solution with the above project is built Figs.Net will replace {{sample1}} with value "prod value 1" and so on.
