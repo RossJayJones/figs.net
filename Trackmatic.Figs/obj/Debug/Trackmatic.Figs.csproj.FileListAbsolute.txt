@@ -1,9 +1,0 @@
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\bin\Debug\Trackmatic.Figs.dll
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\bin\Debug\Trackmatic.Figs.pdb
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\obj\Debug\ResolveAssemblyReference.cache
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\obj\Debug\Trackmatic.Figs.dll
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\obj\Debug\Trackmatic.Figs.pdb
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\bin\Debug\Newtonsoft.Json.dll
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\bin\Debug\Newtonsoft.Json.xml
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\bin\Debug\CodeContracts\Trackmatic.Figs.noReferenceAssembly
-C:\Data\Projects\Tests\Trackmatic.Figs\Trackmatic.Figs\bin\Debug\Trackmatic.Figs.Targets
