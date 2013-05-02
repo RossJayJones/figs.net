@@ -5,4 +5,5 @@
     <FigsLibPath>$(FigsAssemblyPath)\Trackmatic.Figs.dll</FigsLibPath>
   </PropertyGroup>
   <UsingTask AssemblyFile="$(FigsLibPath)" TaskName="Trackmatic.Figs.Figs" />
+  <UsingTask AssemblyFile="$(FigsLibPath)" TaskName="Trackmatic.Figs.FigsAlongSide" />
 </Project>

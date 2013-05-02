@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultConfigurationParser.cs" />
+    <Compile Include="FigsAlongSide.cs" />
     <Compile Include="IParseConfiguration.cs" />
     <Compile Include="IProvideSettings.cs" />
     <Compile Include="JsonSettingsProvider.cs" />
@@ -94,6 +95,7 @@
     <None Include="packages.config" />
     <None Include="Trackmatic.Figs.Targets">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
