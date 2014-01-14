@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\Figs\Trackmatic.Figs.Targets"/>
-  <PropertyGroup>
-    <FigsPath>settings.json</FigsPath>
-  </PropertyGroup>
+  <UsingTask AssemblyFile="C:\Data\Projects\Trackamtic.Figs\figs.net\Trackmatic.Figs\bin\Debug\Trackmatic.Figs.dll" TaskName="Trackmatic.Figs.Figs" />
+  <UsingTask AssemblyFile="C:\Data\Projects\Trackamtic.Figs\figs.net\Trackmatic.Figs\bin\Debug\Trackmatic.Figs.dll" TaskName="Trackmatic.Figs.FigsAlongSide" />
   <Target Name="Build">
-    <Figs FigsPath="$(FigsPath)" ProjectName="$(MSBuildProjectFile)" BinPath="$(MSBuildProjectDirectory)\bin\Debug\" />
+    <Figs ConigurationFilePath="settings.json" ProjectName="sample" BinPath="$(MSBuildProjectDirectory)" OutputType="Library" />
   </Target>
 </Project>

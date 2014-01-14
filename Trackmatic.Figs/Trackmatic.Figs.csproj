@@ -87,6 +87,7 @@
     <Compile Include="FigsAlongSide.cs" />
     <Compile Include="IParseConfiguration.cs" />
     <Compile Include="IProvideSettings.cs" />
+    <Compile Include="ILog.cs" />
     <Compile Include="JsonSettingsProvider.cs" />
     <Compile Include="Figs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

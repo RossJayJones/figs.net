@@ -7,7 +7,7 @@ using Microsoft.Build.Utilities;
 
 namespace Trackmatic.Figs
 {
-    public class Figs : Task
+    public class Figs : Task, ILog
     {
         [Required]
         public string BinPath { get; set; }
@@ -29,7 +29,7 @@ namespace Trackmatic.Figs
             using (var stream = File.OpenRead(file))
             {
                 var parser = new DefaultConfigurationParser(Encoding.UTF8);
-                var settings = new JsonSettingsProvider(ConigurationFilePath);
+                var settings = new JsonSettingsProvider(this, ConigurationFilePath);
                 var config = parser.Parse(stream, settings.Load());
                 stream.Close();
                 File.Delete(file);
@@ -43,6 +43,11 @@ namespace Trackmatic.Figs
             if (!OutputTypes.ContainsKey(OutputType))
                 throw new InvalidOperationException("Output type " + OutputType + " not supported");
             return OutputTypes[OutputType];
+        }
+
+        public void LogMessage(string message)
+        {
+            Log.LogMessage(MessageImportance.High, message);
         }
 
         private static Dictionary<string, string> OutputTypes = new Dictionary<string, string>
