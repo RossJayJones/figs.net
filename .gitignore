@@ -1,0 +1,15 @@
+*/**/.suo
+*/**/bin
+*/**/obj
+*.suo
+*/bin
+*/obj
+/packages
+/.figs
+TestResult.xml
+.vs
+trackmatic-autoincrement.txt
+*/**/*.user
+*.user
+*/**/aspnet_client
+*.user

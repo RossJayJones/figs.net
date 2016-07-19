@@ -7,7 +7,6 @@ namespace Trackmatic.Figs
     public class JsonSettingsProvider : IProvideSettings
     {
         private readonly ILog _log;
-
         private readonly string _path;
 
         public JsonSettingsProvider(string path)
@@ -36,19 +35,20 @@ namespace Trackmatic.Figs
             {
                 Log("Loading active configuration from .json file");
                 if (!settings.ContainsKey("configuration") || !settings["configuration"].ContainsKey("active"))
+                {
                     throw new KeyNotFoundException("An active configuration has not been supplied");
+                }
                 configuration = settings["configuration"]["active"];
             }
 
             if (!settings.ContainsKey(configuration))
-                throw new KeyNotFoundException(string.Format("Configured configuration {0} could not be found", settings["configuration"]["active"]));
+                throw new KeyNotFoundException($"Configured configuration {settings["configuration"]["active"]} could not be found");
             return settings[configuration];
         }
 
         private void Log(string message)
         {
-            if (_log == null) return;
-            _log.LogMessage(message);
+            _log?.LogMessage(message);
         }
     }
 }

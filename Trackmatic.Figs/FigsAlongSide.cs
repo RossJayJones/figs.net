@@ -8,56 +8,62 @@ using System.Text;
 namespace Trackmatic.Figs
 {
 
-    public class Figs : Task, ILog
+    public class FigsAlongSide : Task, ILog
     {
         private static readonly Dictionary<string, string> OutputTypes;
 
-        static Figs()
+        static FigsAlongSide()
         {
-            Dictionary<string, string> dictionary = new Dictionary<string, string> {
-                { 
+            var dictionary = new Dictionary<string, string>
+            {
+                {
                     "Library",
-                    "dll"
+                    "Web"
                 },
-                { 
+                {
                     "Exe",
-                    "exe"
+                    "App"
                 }
             };
             OutputTypes = dictionary;
         }
 
-        public override bool Execute()
-        {
-            Log.LogMessage(MessageImportance.High, "Using " + ConigurationFilePath + " for figs configuration source");
-            string path = Path.Combine(@".\", BinPath, $"{ProjectName}.{Extension()}.config");
-            Log.LogMessage(MessageImportance.High, "Using " + path + " for figs configuration target");
-            using (FileStream stream = File.OpenRead(path))
-            {
-                string contents = new DefaultConfigurationParser(Encoding.UTF8).Parse(stream, new JsonSettingsProvider(this, ConigurationFilePath).Load());
-                stream.Close();
-                File.Delete(path);
-                File.WriteAllText(path, contents);
-            }
-            return true;
-        }
-
-        private string Extension()
+        private string ConfigFile()
         {
             if (!OutputTypes.ContainsKey(OutputType))
             {
                 throw new InvalidOperationException("Output type " + OutputType + " not supported");
             }
-            return OutputTypes[OutputType];
+            return $".\\{OutputTypes[OutputType]}.config";
+        }
+
+        public override bool Execute()
+        {
+            Log.LogMessage(MessageImportance.High, "Using " + ConigurationFilePath + " for figs configuration source");
+            Log.LogMessage(MessageImportance.High, "Using " + FigsFile() + " for figs configuration target");
+            using (FileStream stream = File.OpenRead(FigsFile()))
+            {
+                string contents = new DefaultConfigurationParser(Encoding.UTF8).Parse(stream, new JsonSettingsProvider(this, ConigurationFilePath).Load());
+                stream.Close();
+                File.Delete(ConfigFile());
+                File.WriteAllText(ConfigFile(), contents);
+            }
+            return true;
+        }
+
+        private string FigsFile()
+        {
+            if (!OutputTypes.ContainsKey(OutputType))
+            {
+                throw new InvalidOperationException("Output type " + OutputType + " not supported");
+            }
+            return $".\\{OutputTypes[OutputType]}.figs.config";
         }
 
         public void LogMessage(string message)
         {
             Log.LogMessage(MessageImportance.High, message);
         }
-
-        [Required]
-        public string BinPath { get; set; }
 
         [Required]
         public string ConigurationFilePath { get; set; }
