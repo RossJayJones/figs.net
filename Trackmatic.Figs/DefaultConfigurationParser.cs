@@ -151,16 +151,16 @@ namespace Trackmatic.Figs
         private struct Symbol
         {
             public readonly int Cursor;
-            public readonly List<byte> Data;
-            public readonly Encoding Encoding;
+            private readonly List<byte> Data;
+            private readonly Encoding Encoding;
             public Symbol(Encoding encoding, int cursor, byte key)
             {
                 Encoding = encoding;
                 Cursor = cursor;
-                List<byte> list = new List<byte> {
+                Data = new List<byte>
+                {
                     key
                 };
-                Data = list;
             }
 
             public int Length => Data.Count;
