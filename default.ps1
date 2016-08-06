@@ -54,10 +54,10 @@ function publish-package($nuspec, $apikey) {
 
     # Create nuget package and upload to nuget
     exec { & $nuget pack "$package_dir/$nuspec.nuspec" }
-    #exec { & $nuget setApiKey $apikey }
-    #exec { & $nuget push "$package" }
+    exec { & $nuget setApiKey $apikey }
+    exec { & $nuget push "$package" }
 
     # Perform some cleanup on the folder
-    #remove-item $package
-    #remove-item $package_dir -R -ErrorAction SilentlyContinue
+    remove-item $package
+    remove-item $package_dir -R -ErrorAction SilentlyContinue
 }

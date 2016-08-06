@@ -2,12 +2,10 @@
 <package >
   <metadata>
     <id>Figs</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Trackmatic</authors>
     <owners>Trackmatic</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <projectUrl>http://www.trackmatic.co.za</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net Configuration Build Task</description>
     <releaseNotes></releaseNotes>
