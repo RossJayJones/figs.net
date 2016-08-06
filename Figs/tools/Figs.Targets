@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FigsAssemblyPath Condition="'$(FigsAssemblyPath)' == ''">$(MSBuildThisFileDirectory)</FigsAssemblyPath>
+    <FigsLibPath>$(FigsAssemblyPath)Figs.dll</FigsLibPath>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="$(FigsLibPath)" TaskName="Trackmatic.Figs.Figs" />
+  <Target Name="AfterBuild">
+    <Figs ConigurationFilePath="..\settings.json" ProjectName="$(MSBuildProjectName)" BinPath="$(OutputPath)" OutputType="$(OutputType)" />
+  </Target>
+</Project>

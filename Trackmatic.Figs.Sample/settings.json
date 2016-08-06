@@ -1,12 +1,12 @@
 ﻿{
 	"development": {
-		"sample1" : "1",
-		"sample2" : "2"
+		"sample1" : "development value 1",
+		"sample2" : "development value 2"
 	},
-	"production": {
-		"sample1" : "1",
-		"sample2" : "my value"
-	},
+  "production": {
+    "sample1": "production value 1",
+    "sample2": "production value 2"
+  },
 	"configuration": {
 		"active" : "production"
 	}
