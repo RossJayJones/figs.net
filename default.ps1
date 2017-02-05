@@ -5,15 +5,13 @@ properties {
     $xunit_runner = "$base_dir\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe"
     $destination_dir = $output    
     $nuget = "$base_dir\.nuget\NuGet.exe"
-    $apikey = "098ab3a1-7edf-41c5-8a27-65224064bb87"
-    $nuget_source = "http://nuget.trackmatic.co.za/nuget"
 }
 
 Task default -depends Clean, Build, Test
 
 Task Publish {
-    #$apikey = Read-Host -Prompt 'Enter Api Key'
-    publish-package "Figs" $apikey $nuget_source
+    $apikey = Read-Host -Prompt 'Enter Api Key'
+    publish-package "Figs" $apikey
 }
 
 Task Build {
@@ -33,7 +31,7 @@ Task Test {
     exec { & $xunit_runner "$base_dir\Plot.Tests\bin\Debug\Plot.Tests.dll" }
 }
 
-function publish-package($nuspec, $apikey, $source) {
+function publish-package($nuspec, $apikey) {
     $file = "$base_dir\$nuspec\$nuspec.nuspec"
     write-host $file
     $spec = [xml](get-content $file)
@@ -60,8 +58,8 @@ function publish-package($nuspec, $apikey, $source) {
 
     # Create nuget package and upload to nuget
     exec { & $nuget pack "$package_dir/$nuspec.nuspec" }
-    exec { & $nuget setApiKey $apikey -Source $source }
-    exec { & $nuget push "$package" -Source $source }
+    exec { & $nuget setApiKey $apikey }
+    exec { & $nuget push "$package" }
 
     # Perform some cleanup on the folder
     remove-item $package
