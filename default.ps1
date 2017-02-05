@@ -5,13 +5,15 @@ properties {
     $xunit_runner = "$base_dir\packages\xunit.runner.console.2.1.0\tools\xunit.console.exe"
     $destination_dir = $output    
     $nuget = "$base_dir\.nuget\NuGet.exe"
+    $apikey = "098ab3a1-7edf-41c5-8a27-65224064bb87"
+    $nuget_source = "http://nuget.trackmatic.co.za/nuget"
 }
 
 Task default -depends Clean, Build, Test
 
 Task Publish {
-    $apikey = Read-Host -Prompt 'Enter Api Key'
-    publish-package "Figs" $apikey  
+    #$apikey = Read-Host -Prompt 'Enter Api Key'
+    publish-package "Figs" $apikey $nuget_source
 }
 
 Task Build {
@@ -31,7 +33,7 @@ Task Test {
     exec { & $xunit_runner "$base_dir\Plot.Tests\bin\Debug\Plot.Tests.dll" }
 }
 
-function publish-package($nuspec, $apikey) {
+function publish-package($nuspec, $apikey, $source) {
     $file = "$base_dir\$nuspec\$nuspec.nuspec"
     write-host $file
     $spec = [xml](get-content $file)
@@ -43,19 +45,23 @@ function publish-package($nuspec, $apikey) {
     remove-item $package_dir -R -ErrorAction SilentlyContinue
     new-item -itemtype directory "$package_dir"
     new-item -itemtype directory "$package_dir/tools"
+    new-item -itemtype directory "$package_dir/build"
     
     # Copy nuspec file to package folder
     copy-item "$base_dir\$nuspec\$nuspec.nuspec" "$package_dir\$nuspec.nuspec"
+
+    copy-item "$base_dir\$nuspec\bin\debug\Figs.dll" "$package_dir\build"
+    copy-item "$base_dir\$nuspec\bin\debug\Newtonsoft.Json.dll" "$package_dir\build"
+
     copy-item "$base_dir\$nuspec\bin\debug\Figs.dll" "$package_dir\tools"
     copy-item "$base_dir\$nuspec\bin\debug\Newtonsoft.Json.dll" "$package_dir\tools"
-    copy-item "$base_dir\$nuspec\tools\Figs.Targets" "$package_dir\tools"
-    copy-item "$base_dir\$nuspec\tools\install.ps1" "$package_dir\tools"
-    copy-item "$base_dir\$nuspec\tools\uninstall.ps1" "$package_dir\tools"
+    copy-item "$base_dir\$nuspec.Cli\bin\debug\Figs.Cli.exe" "$package_dir\tools"
+    copy-item "$base_dir\$nuspec\build\Figs.Targets" "$package_dir\build"
 
     # Create nuget package and upload to nuget
     exec { & $nuget pack "$package_dir/$nuspec.nuspec" }
-    exec { & $nuget setApiKey $apikey }
-    exec { & $nuget push "$package" }
+    exec { & $nuget setApiKey $apikey -Source $source }
+    exec { & $nuget push "$package" -Source $source }
 
     # Perform some cleanup on the folder
     remove-item $package

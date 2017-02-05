@@ -4,8 +4,8 @@
     <FigsAssemblyPath Condition="'$(FigsAssemblyPath)' == ''">$(MSBuildThisFileDirectory)</FigsAssemblyPath>
     <FigsLibPath>$(FigsAssemblyPath)Figs.dll</FigsLibPath>
   </PropertyGroup>
-  <UsingTask AssemblyFile="$(FigsLibPath)" TaskName="Trackmatic.Figs.Figs" />
+  <UsingTask AssemblyFile="$(FigsLibPath)" TaskName="Figs.FigsBuildTask" />
   <Target Name="AfterBuild">
-    <Figs ConigurationFilePath="..\settings.json" ProjectName="$(MSBuildProjectName)" BinPath="$(OutputPath)" OutputType="$(OutputType)" />
+    <FigsBuildTask ConigurationFilePath="..\settings.json" ProjectName="$(MSBuildProjectName)" BinPath="$(OutputPath)" OutputType="$(OutputType)" />
   </Target>
 </Project>

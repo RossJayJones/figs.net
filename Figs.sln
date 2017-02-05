@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{05121C17-7CEC-4F41-ADA5-D6A48691EA5A}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figs", "Figs\Figs.csproj", "{2D21CABE-FFA4-4DBE-92A2-7389D71185F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figs.Tests", "Figs.Tests\Figs.Tests.csproj", "{00FE21E5-3B09-47FD-B5A2-8FFBEBC32E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figs.Cli", "Figs.Cli\Figs.Cli.csproj", "{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,18 @@ Global
 		{00FE21E5-3B09-47FD-B5A2-8FFBEBC32E6C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{00FE21E5-3B09-47FD-B5A2-8FFBEBC32E6C}.Release|x86.ActiveCfg = Release|Any CPU
 		{00FE21E5-3B09-47FD-B5A2-8FFBEBC32E6C}.Release|x86.Build.0 = Release|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Debug|x86.Build.0 = Debug|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Release|x86.ActiveCfg = Release|Any CPU
+		{3CA9FC99-08CD-4C05-B911-20C8D7DA3CF2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
